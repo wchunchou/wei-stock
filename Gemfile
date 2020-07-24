@@ -17,7 +17,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
-gem 'bootstrap-sass', '3.3.6'
+gem 'bootstrap-sass', '3.4.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails',               '~> 4.3', '>= 4.3.3'
 gem 'iex-ruby-client'

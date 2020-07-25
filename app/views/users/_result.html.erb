@@ -9,6 +9,16 @@
         <%= @stock.name %> -
         $<%= @stock.last_price %>
     </div>
-    <%= link_to 'Follow', user_stocks_path(user: current_user, ticker: @stock.ticker), class:'btn btn-outline-primary btn-sm', method: :post %>
+    
+    <% if current_user.can_track_stock?(@stock.ticker) %>
+        <%= link_to 'Follow', user_stocks_path(user: current_user, ticker: @stock.ticker), class:'btn btn-outline-primary btn-sm', method: :post %>
+    <% else %>
+        <% if !current_user.under_stock_limit? %>
+            <div class="btn btn-disable btn-sm text-muted">10 stocks</div>
+        <% end %>
+        <% if current_user.stock_already_tracked?(@stock.ticker) %>
+            <div class="btn btn-disable btn-sm text-muted">following</div>
+        <% end %>
+    <% end %>
 </div>
 <% end %>

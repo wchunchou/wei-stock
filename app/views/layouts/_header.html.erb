@@ -19,6 +19,7 @@
             Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Edit Profile', edit_user_registration_path , class:'dropdown-item' %>
             <%= link_to( 'Log out', destroy_user_session_path,class:'dropdown-item', method: :delete) %>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
@@ -33,6 +34,11 @@
           <%= link_to 'Sign up', new_user_registration_path, class:'nav-link' %>
           </li>
         <% end %>
+      </ul>
+      <ul class="navbar-nav mr-2">
+        <li class="nav-item">
+         Hi! <%= current_user.full_name if current_user.present? %>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

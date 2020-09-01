@@ -1,0 +1,10 @@
+<h3><%= @user.full_name %></h3>
+<hr>
+<table>
+  <tr>
+    <td scope="row"><%= link_to user.email, user_path(user) %></td>
+    <td><%= link_to 'unfollow', friendship_path(user), method: :delete, data:{confirm: 'Are you sure?'}, class:'btn btn-sm btn-outline-primary' %></td>
+  </tr>
+</table>
+
+<%= render'stocks/list' %>

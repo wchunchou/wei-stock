@@ -1,0 +1,19 @@
+
+<% if @query_friends %>
+<div class="card card-header d-flex flex-column ">
+    <% @query_friends.each do |friend| %>
+        <div class="d-flex flex-row justify-content-between py-1">
+            <div>
+                <%= link_to friend.full_name, user_path(friend) %> -
+                <%= friend.email %>
+            </div>
+        
+        <% if current_user.not_friend_with?(friend) %>
+            <%= link_to 'Follow', friendships_path(user: current_user, friend_id: friend.id), method: :post, class:'btn btn-outline-primary btn-sm'%>
+        <% else %>
+            <div class="btn btn-disable btn-sm text-muted">following</div>
+        <% end %>
+        </div>
+    <% end %> 
+</div>
+<% end %>
